@@ -75,10 +75,14 @@ To fulfill the necessity of excellent quality maintenance service and to resolve
 
 \section{Related Work and Contributions}
 \subsection{3D Printed Prosthesis}
-There are many efforts and studies, which have been conducted so that more people can use low-cost prosthetics. Many of the prior research started to focus on the trial to make prosthetics with 3d printers to satisfy users' financial needs. Several recent works \cite{3D2}\cite{3D4} aimed to build a low cost robotic prosthetic arm on the use of 3D printing technology with capable and comfortable design. 3D printing technology suggests a new path to sufficient amputees' financial needs and various physical conditions with departing from the prosthesis's standard size for children or veterans with upper limb loss \cite{3D3}. The research \cite{3D1} developed a hand prototype using the same structure of a human hand with using 5 servo motors and electromyography (EMG) sensors to detect the electrical potential when muscle contraction appears, which became the foundation for the prototype of this architecture. 
+There are many efforts and studies, which have been conducted so that more people can use low-cost prosthetics. Many of the prior research started to focus on the trial to make prosthetics with 3d printers to satisfy users' financial needs. Several recent works \cite{3D2}\cite{3D4} aimed to build a low cost robotic prosthetic arm on the use of 3D printing technology with capable and comfortable design. 3D printing technology suggests a new path to sufficient amputees' financial needs and various physical conditions with departing from the prosthesis's standard size for children or veterans with upper limb loss \cite{3D3}.
 
-\subsection{Action Classification}
-To enhance the performance of the imagined hand movement using the non-invasive control technique, Brain-Machine Interface (BMI) research used the electroencephalogram (EEG) \cite{EEG}. The features were extracted using RBF kernel SVM classifier \cite{ML1}\cite{ML2}, achieved 92.75\% for the average accuracy compared to 81.12\% obtained with Linear SVM classifier \cite{EEG}. 
+\subsection{Electromyography Sensor}
+Many different sensors have been used to read users to control their prosthesis \cite{MMG}. Especially, EMG sensors are in progress with high accurate and low cost to control diverse devices. The most attractive point to use an EMG sensor is that the EMG sensor is a hand-free sensor, which can avoid invasive surgery. Significant researches are using an EMG sensor, which can control a mouse with an EMG sensor \cite{mouse}, which can control a mobile RC car with an EMG sensor \cite{RCcar}, which can even assemble Rubik's cube \cite{rubikcube} with using EMG sensors \cite{controlEMG}. To enhance the performance of the imagined hand movement using the non-invasive control technique, Brain-Machine Interface (BMI) research used the electroencephalogram (EEG) \cite{EEG}.
+
+The research \cite{3D1} developed a hand prototype using the same structure of a human hand with using 5 servo motors and electromyography (EMG) sensors to detect the electrical potential when muscle contraction appears, which became the foundation for the prototype of this architecture.
+
+
 
 
 Based on these researches, the problem we consider was the customization for each diverse users. The perfectly fitting prosthesis with high performance for all the different individuals is impracticable.
@@ -94,7 +98,6 @@ In this section we provide a detailed description of the individual control syst
 
 \subsection{3D Printed Prosthetic Hand}
 Many of the open-source prosthetic hands' floor print is available. All the prosthesis parts are into stereolithography (STL) files with different designs that are possible to be modified for the best fittable model for each different user. With those STL files, the 3D printer printed the prosthetic hand with different diverse sizes for different people who need it. For the experiments, an open-source design was adopted and printed with a 3D printer, which is easily modified in the future for each user's needs.
-
 
 In this prosthesis prototype, 5 servo motors were used for the actuator. Each servo motor mg996r is connected with each finger. The mg996r motors were controlled by an Arduino Mega microcontroller, which is the board consist of an Atmel 8-bit AVR microcontroller. When the EMG sensors detect a muscle contraction, the microcontroller controls individual servo motors to control individual fingers in real-time through the decision-making process. The printed 3D prosthetic hand is shown in Fig. \ref{hand}.
 
@@ -236,7 +239,7 @@ The support vector classification implementation is tuned regularization paramet
 
 %%% Experimentation and Results`
 \section{Experimentation and Results}
-The subject in the experiment is instructed to attach three EMG muscle sensors to the subject's muscles which shown in Fig \ref{pic}.
+In order to evaluate the performance of the training architecture, the experiments were conducted with 7 different aged people. The subject in the experiment is instructed to attach three EMG muscle sensors to the subject's muscles which shown in Fig \ref{pic}.
 
 \begin{figure}[h]
   \centering
@@ -283,6 +286,7 @@ Any user's customized unique gestures are recorded in the 'User's unique gesture
 
 Fig. \ref{3dplot} illustrated for two representative histories of each EMG sensor variables' cluster. Each color of scatters represents each different gestures as labels. Each axis of the graph shows the actual sensor variable boundary between 0 to 1000 amplitude, measured by 3 different MyoWare Muscle Sensors. 
 
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=3.4in]{pretty_f.png}
@@ -303,11 +307,11 @@ This equation \eqref{eq} is merely equivalent to the relationship of predictions
 
 
 
-The train set estimated accuracy was 95.69\%, and the test set estimated accuracy was 95.50\%. As the last step of the experiment, user intended any kinds of unique gestures what he wants such as crossed fingers, V sign, finger gun, and sign of the horns, the prosthetic hand successfully working with high percentage 93\%. This result denotes applying user-customized training software into the prosthetic hand can suffice individual user requirements with high performance.
+The train set estimated accuracy was 95.69\%, and the test set estimated accuracy was 95.50\%. As the last step of the experiment, user intended any kinds of unique gestures what he wants such as crossed fingers, V sign, finger gun, and sign of the horns, the prosthetic hand successfully working with high percentage 93\%. The features were extracted using RBF kernel SVM classifier \cite{ML1}\cite{ML2}, achieved 92.75\% for the average accuracy. This results have much higher accuracy rather than 81.12\% obtained with Linear SVM classifier \cite{EEG}. This result denotes applying user-customized training software into the prosthetic hand can suffice individual user requirements with high performance.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=2.5in]{confusionmatrix3.PNG}
+  \includegraphics[width=3.3in]{confusionmatrix3.PNG}
   \caption{Confusion matrix represents the accuracy per user action label}
   \label{cm}
 \end{figure}
@@ -315,7 +319,7 @@ The train set estimated accuracy was 95.69\%, and the test set estimated accurac
 
 
 \section{Conclusion}
-This article aimed to exhibit the architecture which can provide self trainable sufficient quality of maintenance service and produce high performing prosthesis with a low economic cost. Consequently, this self-trainable customized control system for 3D printed prosthetic hand is successfully designed and tested with high performance.
+This article aimed to exhibit the architecture which can provide self trainable sufficient quality of maintenance service and produce high performing prosthesis with a low economic cost. Consequently, this self-trainable customized control system for 3D printed prosthetic hand is successfully designed and tested with high performance. Sustainable high quality electromyography signals for long term is still challenging. The elaborate manufacture and processing of the prototype model is necessary for undisturbed sensor signal recording, which is directly connected with high accurate performance. Our future work will focus on enhancing the robustness of the model's accuracy and extend to apply this architecture to design intelligent sports prosthetic leg \cite{sportsleg}.
 
 
 
@@ -360,6 +364,21 @@ A.~Mohammadi, J.~Lavranos, Y.~Tan, P.~Choong and D.~Oetomo, \emph{A Paediatric 3
 A.~Cañizares, J.~Pazos and D.~Benítez, \emph{On the Use of 3D Printing Technology Towards the
 Development of a Low-Cost Robotic Prosthetic Arm}, IEEE International Autumn Meeting on Power, Electronics and Computing (ROPEC). 2017.
 
+\bibitem{MMG}
+H.~Yu, S.~Zhao and J.~Hu, \emph{MMG Signal and Its Applications in Prosthesis Control}, International Convention on Rehabilitation Engineering and Assistive Technology (iCREAT). 2010.
+
+\bibitem{mouse}
+J.~Kim, H.~Jeong and W.~Son, \emph{A new means of HCI: EMG-MOUSE}, IEEE International Conference on Systems, Man and Cybernetics. 2004.
+
+\bibitem{RCcar}
+J.~Kim, S.~Mastnik and E.~ Andre, \emph{EMG-based hand gesture recognition for realtime biosignal interfacing}, Intelligent User Interfaces (IUI). 2008.
+
+\bibitem{rubikcube}
+X.~Zhang, X.~Chen, Y.~Li, V.~Lantz, K.~Wang and J.~Yang, \emph{A framework for hand gesture recognition based on accelerometer and EMG sensors}, IEEE Transactions on Systems, Man, and Cybernetics. 2011.
+
+\bibitem{controlEMG}
+S.~Shin, D.~Kim and Y.~Seo, \emph{Controlling Mobile Robot Using IMU and EMG Sensor-Based Gesture Recognition}, International Conference on Broadband, Wireless Computing, Communication and Applications (BWCCA), 2014.
+
 \bibitem{EEG}
 R.~Bousseta, S.~Tayeb, I.~E. Ouakouak, M.~ Gharbi, F.~Regragui and M.~M. Himmi, \emph{EEG Efficient classification of imagined hand
 movement using RBF kernel SVM}, IEEE International Conference on Intelligent Systems: Theories and Applications (SITA). 2016.
@@ -372,6 +391,11 @@ T.~Hastie, R.~Tibshirani, and J.~H. Friedman, \emph{The elements of statistical 
 
 \bibitem{myo}
 www.AdvancerTechnologies.com, \emph{MyoWare Muscle Sensor (AT-04-001) datasheet}, 2015.
+
+\bibitem{sportsleg}
+S.~Yamanaka, Y.~Tsuji, M.~Higaki and H.~Suzuki, \emph{Designing the Sports Prosthetic Leg}, AH '11: 2011 2nd Augmented Human International Conference. 2011.
+
+
 
 \end{thebibliography}
 
